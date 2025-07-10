@@ -1,11 +1,11 @@
 <?php
 // Obtener las variables de entorno de Railway
 // Usamos getenv() para que PHP lea las variables que configurarás en Railway
-$host = getenv('MYSQLHOST'); // O getenv('DB_HOST') si prefieres ese nombre
-$dbname = getenv('MYSQL_DATABASE'); // O getenv('DB_NAME')
-$user = getenv('MYSQLUSER'); // O getenv('DB_USER')
-$pass = getenv('MYSQL_PASSWORD'); // O getenv('DB_PASSWORD')
-$port = getenv('MYSQLPORT'); // O getenv('DB_PORT')
+$host = getenv('MYSQLHOST') ?: 'mysql.railway.internal' ; // O getenv('DB_HOST') si prefieres ese nombre
+$dbname = getenv('MYSQL_DATABASE') ?: 'railway' ; // O getenv('DB_NAME')
+$user = getenv('MYSQLUSER') ?: 'root' ; // O getenv('DB_USER')
+$pass = getenv('MYSQL_PASSWORD') ?: 'DZzncTjcePKLzkKcJkYUobhsddXuPIkR' ; // O getenv('DB_PASSWORD')
+$port = getenv('MYSQLPORT') ?: '3306'; // O getenv('DB_PORT')
 
 try {
     // La cadena de conexión PDO con el puerto
