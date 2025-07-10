@@ -1,14 +1,19 @@
 <?php
-$host = "localhost";
-$dbname = "digidex_db";
-$user = "root";
-$pass = ""; // Cambia si tienes contraseña
+// Obtener las variables de entorno de Railway
+// Usamos getenv() para que PHP lea las variables que configurarás en Railway
+$host = getenv('MYSQLHOST'); // O getenv('DB_HOST') si prefieres ese nombre
+$dbname = getenv('MYSQL_DATABASE'); // O getenv('DB_NAME')
+$user = getenv('MYSQLUSER'); // O getenv('DB_USER')
+$pass = getenv('MYSQL_PASSWORD'); // O getenv('DB_PASSWORD')
+$port = getenv('MYSQLPORT'); // O getenv('DB_PORT')
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);
+    // La cadena de conexión PDO con el puerto
+    $conn = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     http_response_code(500);
     echo json_encode(["error" => "Error en la conexión: " . $e->getMessage()]);
     exit;
 }
+?>
