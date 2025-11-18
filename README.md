@@ -111,8 +111,8 @@ digidex/
 ## 🗄 Instalación y ejecución
 
 1️⃣ Clonar el repositorio
-git clone https://github.com/usuario/digidex
-cd digidex
+git clone https://github.com/Niuska0212/Web_con_BD
+cd Web_con_DB
 
 2️⃣ Importar la base de datos
 
